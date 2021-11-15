@@ -4,7 +4,8 @@
   "dockerFile": "Dockerfile",
   // \\wsl$\Ubuntu-20.04\home\user\.kube
   "mounts": [
-    "source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-devcontainer,type=bind"
+    "source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-devcontainer,type=bind",
+    "source=${env:HOME}${env:USERPROFILE}/.ssh,target=/usr/local/share/.ssh,type=bind"
   ],
   "settings": {
     "workbench.colorTheme": "codeSTACKr Theme",
@@ -25,7 +26,8 @@
     "[gitignore]": {
       "editor.defaultFormatter": "codezombiech.gitignore"
     }
-  },
+  }, // don't shut down the container on exit
+  "shutdownAction": "none",
   "extensions": [
     "alexcvzz.vscode-sqlite",
     "bengreenier.vscode-node-readme",
